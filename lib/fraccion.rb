@@ -20,10 +20,6 @@ class Fraccion
     @num.to_f/@denom.to_f
   end
 
-  def ==(other)
-    @num == other.num && @denom == other.denom
-  end
-
   def abs
     Fraccion.new(@num.abs, @denom)
   end
@@ -57,20 +53,9 @@ class Fraccion
     result - Fraccion.new(result.to_f.truncate, 1)
   end
 
-  def <(other)
-    self.to_f < other.to_f
-  end
-
-  def >(other)
-    self.to_f > other.to_f
-  end
-
-  def <=(other)
-    self.to_f <= other.to_f
-  end
-
-  def >=(other)
-    self.to_f >= other.to_f
+  def <=>(other)
+    return nil unless (other.instance_of? Fraccion)
+    self.to_f <=> other.to_f
   end
 
 end
