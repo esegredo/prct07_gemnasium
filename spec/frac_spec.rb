@@ -118,4 +118,37 @@ describe Fraccion do
       @p3.should be >= @p4
     end
   end
+
+  describe "Coercion" do
+    it "Se debe poder operar entre fracciones y enteros" do
+      (2 + @p1).should == Fraccion.new(23, 8)
+      (@p1 + 3).should == Fraccion.new(31, 8)
+
+      (2 - @p1).should == Fraccion.new(9, 8)
+      (@p1 - 3).should == Fraccion.new(-17, 8)
+
+      (2 * @p1).should == Fraccion.new(7, 4)
+      (-2 * @p1).should == Fraccion.new(-7, 4)
+      (@p1 * 3).should == Fraccion.new(21, 8)
+      (@p1 * -3).should == Fraccion.new(-21, 8)
+
+      (2 / @p1).should == Fraccion.new(16, 7)
+      (-2 / @p1).should == Fraccion.new(-16, 7)
+      (@p1 / 3).should == Fraccion.new(7, 24)
+      (@p1 / -3).should == Fraccion.new(-7, 24)
+
+      (1 == Fraccion.new(7, 7)).should be_true
+      (Fraccion.new(-4, -2) == 2).should be_true
+      (1 != Fraccion.new(7, 7)).should be_false
+      (Fraccion.new(-4, -2) != 2).should be_false
+      @p1.should be < 1
+      @p1.should be <= 1
+      1.should be > @p1
+      1.should be >= @p1
+      @p1.should_not be < -1
+      @p1.should_not be <= -1
+      -1.should_not be > @p1
+      -1.should_not be >= @p1
+    end
+  end
 end

@@ -33,29 +33,39 @@ class Fraccion
   end
 
   def +(other)
+    other = Fraccion.new(other, 1) if other.is_a? Integer
     Fraccion.new(@num * other.denom + @denom * other.num, @denom * other.denom);
   end
 
   def -(other)
+    other = Fraccion.new(other, 1) if other.is_a? Integer
     Fraccion.new(@num * other.denom - @denom * other.num, @denom * other.denom);
   end
 
   def *(other)
+    other = Fraccion.new(other, 1) if other.is_a? Integer
     Fraccion.new(@num * other.num, @denom * other.denom)
   end
 
   def /(other)
+    other = Fraccion.new(other, 1) if other.is_a? Integer
     Fraccion.new(@num * other.denom, @denom * other.num)
   end
 
   def %(other)
+    other = Fraccion.new(other, 1) if other.is_a? Integer
     result = self / other
     result - Fraccion.new(result.to_f.truncate, 1)
   end
 
   def <=>(other)
+    other = Fraccion.new(other, 1) if other.is_a? Integer
     return nil unless (other.instance_of? Fraccion)
     self.to_f <=> other.to_f
+  end
+
+  def coerce(other)
+    [Fraccion.new(other, 1), self] if other.is_a? Integer
   end
 
 end
