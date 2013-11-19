@@ -34,12 +34,12 @@ class Fraccion
 
   def +(other)
     other = Fraccion.new(other, 1) if other.is_a? Integer
-    Fraccion.new(@num * other.denom + @denom * other.num, @denom * other.denom);
+    Fraccion.new(@num * other.denom + @denom * other.num, @denom * other.denom)
   end
 
   def -(other)
     other = Fraccion.new(other, 1) if other.is_a? Integer
-    Fraccion.new(@num * other.denom - @denom * other.num, @denom * other.denom);
+    Fraccion.new(@num * other.denom - @denom * other.num, @denom * other.denom)
   end
 
   def *(other)
