@@ -4,6 +4,8 @@ prct07
 Considere la clase Ruby para representar fracciones que ha implementado usando el Desarrollo dirigido
 por pruebas (Test Driven Development - TDD) usando como herramienta Rspec. 
 
+Version integrada con Gemnasium
+
 1.-) Realice las modificaciones oportunas para contemplar el uso del módulo Comparable.
 
 2.-) La clase se ha de compilar con la herramienta Travis de integración continua. Con ella se comprueba
